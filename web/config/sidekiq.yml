@@ -1,0 +1,6 @@
+:scheduler:
+  :schedule:
+    tag_daily_orders_worker_job:
+      cron: "1 0 * * *"
+      class: "MyDailyWorker"
+      queue: default
