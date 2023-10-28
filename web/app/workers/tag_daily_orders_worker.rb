@@ -8,9 +8,7 @@ class TagDailyOrdersWorker
 
       client = create_session(shop)
       shop_daily_orders = get_daily_orders(client).body.dig("data","orders","edges")
-      if shop_daily_orders.any?
-        shop_daily_orders.each { |order| tag_order(order.dig('node', 'id'), client) }
-      end
+      shop_daily_orders.each { |order| tag_order(order.dig('node', 'id'), client) } if shop_daily_orders.any?
     end
   end
 
